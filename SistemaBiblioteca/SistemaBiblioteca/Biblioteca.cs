@@ -47,5 +47,30 @@ namespace SistemaBiblioteca
                 libro.MostrarInformacion();
             }
         }
+
+        // 🔹 Función extra 1: Buscar libro por título
+        public void BuscarPorTitulo(string titulo)
+        {
+            var encontrados = libros.Where(l => l.Titulo.Contains(titulo, StringComparison.OrdinalIgnoreCase)).ToList();
+            if (encontrados.Count == 0)
+            {
+                Console.WriteLine($"No se encontraron libros con el título que contiene: {titulo}.");
+            }
+            else
+            {
+                Console.WriteLine("Libros encontrados:");
+                foreach (var libro in encontrados)
+                {
+                    libro.MostrarInformacion();
+                }
+            }
+        }
+
+        // 🔹 Función extra 2: Contar libros
+        public void ContarLibros()
+        {
+            Console.WriteLine($"La biblioteca tiene un total de {libros.Count} libros.");
+        }
+
     }
 }

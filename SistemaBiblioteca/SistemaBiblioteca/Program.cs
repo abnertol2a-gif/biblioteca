@@ -29,6 +29,9 @@ namespace SistemaBiblioteca
                 Console.WriteLine("1. Listar libros");
                 Console.WriteLine("2. Buscar libros por autor");
                 Console.WriteLine("3. Agregar libro");
+                Console.WriteLine("4. Buscar libro por título");
+                Console.WriteLine("5. Contar libros en la biblioteca");
+
                 Console.WriteLine("0. Salir");
                 Console.Write("Seleccione una opción: ");
                 opcion = int.Parse(Console.ReadLine());
@@ -46,6 +49,16 @@ namespace SistemaBiblioteca
                     case 3:
                         AgregarLibroMenu(biblioteca);
                         break;
+
+                    case 4:
+                        Console.Write("Ingrese parte del título: ");
+                        string titulo = Console.ReadLine();
+                        biblioteca.BuscarPorTitulo(titulo);
+                        break;
+                    case 5:
+                        biblioteca.ContarLibros();
+                        break;
+
                 }
             } while (opcion != 0);
         }
